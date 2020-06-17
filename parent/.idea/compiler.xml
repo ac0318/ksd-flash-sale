@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shop-common-service" />
         <module name="shop-common-dao" />
         <module name="provider" />
         <module name="consummer" />
         <module name="shop-common-module" />
-        <module name="shop-common-utils" />
         <module name="shop-common-dto" />
-        <module name="shop-common-service" />
+        <module name="shop-common-utils" />
       </profile>
     </annotationProcessing>
   </component>
