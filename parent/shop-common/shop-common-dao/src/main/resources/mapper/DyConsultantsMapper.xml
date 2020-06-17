@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dy.mapper.DyConsultantsMapper">
+
+    <select id="getDyConsultantsById" resultType="cn.dy.pojo.DyConsultants">
+        select
+                id as id,
+                phone as phone,
+                password as password,
+                realName as realName,
+                birthday as birthday,
+                age as age,
+                linkdPhone as linkdPhone,
+                email as email,
+                idCard as idCard,
+                idCardPositiveUrl as idCardPositiveUrl,
+                idCardBackUrl as idCardBackUrl,
+                bankCard as bankCard,
+                avatarUrl as avatarUrl,
+                experience as experience,
+                expertise as expertise,
+                backgroundUrl as backgroundUrl,
+                provinceNo as provinceNo,
+                cityNo as cityNo,
+                address as address,
+                levelId as levelId,
+                honor as honor,
+                fansCounts as fansCounts,
+                wxid as wxid,
+                qqId as qqId,
+                isPerfectInformation as isPerfectInformation,
+                status as status,
+                createdTime as createdTime,
+                updatedTime as updatedTime
+        from dy_consultants
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="id != null">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getDyConsultantsListByMap" resultType="cn.dy.pojo.DyConsultants" parameterType="java.util.Map">
+        select
+                id as id,
+                phone as phone,
+                password as password,
+                realName as realName,
+                birthday as birthday,
+                age as age,
+                linkdPhone as linkdPhone,
+                email as email,
+                idCard as idCard,
+                idCardPositiveUrl as idCardPositiveUrl,
+                idCardBackUrl as idCardBackUrl,
+                bankCard as bankCard,
+                avatarUrl as avatarUrl,
+                experience as experience,
+                expertise as expertise,
+                backgroundUrl as backgroundUrl,
+                provinceNo as provinceNo,
+                cityNo as cityNo,
+                address as address,
+                levelId as levelId,
+                honor as honor,
+                fansCounts as fansCounts,
+                wxid as wxid,
+                qqId as qqId,
+                isPerfectInformation as isPerfectInformation,
+                status as status,
+                createdTime as createdTime,
+                updatedTime as updatedTime
+        from dy_consultants
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="id != null and id!=''">
+                    and id=#{id}
+                </if>
+                <if test="phone != null and phone!=''">
+                    and phone=#{phone}
+                </if>
+                <if test="password != null and password!=''">
+                    and password=#{password}
+                </if>
+                <if test="realName != null and realName!=''">
+                    and realName=#{realName}
+                </if>
+                <if test="birthday != null and birthday!=''">
+                    and birthday=#{birthday}
+                </if>
+                <if test="age != null and age!=''">
+                    and age=#{age}
+                </if>
+                <if test="linkdPhone != null and linkdPhone!=''">
+                    and linkdPhone=#{linkdPhone}
+                </if>
+                <if test="email != null and email!=''">
+                    and email=#{email}
+                </if>
+                <if test="idCard != null and idCard!=''">
+                    and idCard=#{idCard}
+                </if>
+                <if test="idCardPositiveUrl != null and idCardPositiveUrl!=''">
+                    and idCardPositiveUrl=#{idCardPositiveUrl}
+                </if>
+                <if test="idCardBackUrl != null and idCardBackUrl!=''">
+                    and idCardBackUrl=#{idCardBackUrl}
+                </if>
+                <if test="bankCard != null and bankCard!=''">
+                    and bankCard=#{bankCard}
+                </if>
+                <if test="avatarUrl != null and avatarUrl!=''">
+                    and avatarUrl=#{avatarUrl}
+                </if>
+                <if test="experience != null and experience!=''">
+                    and experience=#{experience}
+                </if>
+                <if test="expertise != null and expertise!=''">
+                    and expertise=#{expertise}
+                </if>
+                <if test="backgroundUrl != null and backgroundUrl!=''">
+                    and backgroundUrl=#{backgroundUrl}
+                </if>
+                <if test="provinceNo != null and provinceNo!=''">
+                    and provinceNo=#{provinceNo}
+                </if>
+                <if test="cityNo != null and cityNo!=''">
+                    and cityNo=#{cityNo}
+                </if>
+                <if test="address != null and address!=''">
+                    and address=#{address}
+                </if>
+                <if test="levelId != null and levelId!=''">
+                    and levelId=#{levelId}
+                </if>
+                <if test="honor != null and honor!=''">
+                    and honor=#{honor}
+                </if>
+                <if test="fansCounts != null and fansCounts!=''">
+                    and fansCounts=#{fansCounts}
+                </if>
+                <if test="wxid != null and wxid!=''">
+                    and wxid=#{wxid}
+                </if>
+                <if test="qqId != null and qqId!=''">
+                    and qqId=#{qqId}
+                </if>
+                <if test="isPerfectInformation != null and isPerfectInformation!=''">
+                    and isPerfectInformation=#{isPerfectInformation}
+                </if>
+                <if test="status != null and status!=''">
+                    and status=#{status}
+                </if>
+                <if test="createdTime != null and createdTime!=''">
+                    and createdTime=#{createdTime}
+                </if>
+                <if test="updatedTime != null and updatedTime!=''">
+                    and updatedTime=#{updatedTime}
+                </if>
+        </trim>
+        <if test="beginPos != null and pageSize != null ">
+            limit #{beginPos},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getDyConsultantsCountByMap" resultType="Integer"  parameterType="java.util.Map">
+        select count(*) from dy_consultants
+        <trim prefix="where" prefixOverrides="and | or">
+                <if test="id != null and id!=''">
+                    and id=#{id}
+                </if>
+                <if test="phone != null and phone!=''">
+                    and phone=#{phone}
+                </if>
+                <if test="password != null and password!=''">
+                    and password=#{password}
+                </if>
+                <if test="realName != null and realName!=''">
+                    and realName=#{realName}
+                </if>
+                <if test="birthday != null and birthday!=''">
+                    and birthday=#{birthday}
+                </if>
+                <if test="age != null and age!=''">
+                    and age=#{age}
+                </if>
+                <if test="linkdPhone != null and linkdPhone!=''">
+                    and linkdPhone=#{linkdPhone}
+                </if>
+                <if test="email != null and email!=''">
+                    and email=#{email}
+                </if>
+                <if test="idCard != null and idCard!=''">
+                    and idCard=#{idCard}
+                </if>
+                <if test="idCardPositiveUrl != null and idCardPositiveUrl!=''">
+                    and idCardPositiveUrl=#{idCardPositiveUrl}
+                </if>
+                <if test="idCardBackUrl != null and idCardBackUrl!=''">
+                    and idCardBackUrl=#{idCardBackUrl}
+                </if>
+                <if test="bankCard != null and bankCard!=''">
+                    and bankCard=#{bankCard}
+                </if>
+                <if test="avatarUrl != null and avatarUrl!=''">
+                    and avatarUrl=#{avatarUrl}
+                </if>
+                <if test="experience != null and experience!=''">
+                    and experience=#{experience}
+                </if>
+                <if test="expertise != null and expertise!=''">
+                    and expertise=#{expertise}
+                </if>
+                <if test="backgroundUrl != null and backgroundUrl!=''">
+                    and backgroundUrl=#{backgroundUrl}
+                </if>
+                <if test="provinceNo != null and provinceNo!=''">
+                    and provinceNo=#{provinceNo}
+                </if>
+                <if test="cityNo != null and cityNo!=''">
+                    and cityNo=#{cityNo}
+                </if>
+                <if test="address != null and address!=''">
+                    and address=#{address}
+                </if>
+                <if test="levelId != null and levelId!=''">
+                    and levelId=#{levelId}
+                </if>
+                <if test="honor != null and honor!=''">
+                    and honor=#{honor}
+                </if>
+                <if test="fansCounts != null and fansCounts!=''">
+                    and fansCounts=#{fansCounts}
+                </if>
+                <if test="wxid != null and wxid!=''">
+                    and wxid=#{wxid}
+                </if>
+                <if test="qqId != null and qqId!=''">
+                    and qqId=#{qqId}
+                </if>
+                <if test="isPerfectInformation != null and isPerfectInformation!=''">
+                    and isPerfectInformation=#{isPerfectInformation}
+                </if>
+                <if test="status != null and status!=''">
+                    and status=#{status}
+                </if>
+                <if test="createdTime != null and createdTime!=''">
+                    and createdTime=#{createdTime}
+                </if>
+                <if test="updatedTime != null and updatedTime!=''">
+                    and updatedTime=#{updatedTime}
+                </if>
+        </trim>
+    </select>
+
+    <insert id="insertDyConsultants" parameterType="cn.dy.pojo.DyConsultants">
+        insert into dy_consultants(
+                        phone,
+                        password,
+                        realName,
+                        birthday,
+                        age,
+                        linkdPhone,
+                        email,
+                        idCard,
+                        idCardPositiveUrl,
+                        idCardBackUrl,
+                        bankCard,
+                        avatarUrl,
+                        experience,
+                        expertise,
+                        backgroundUrl,
+                        provinceNo,
+                        cityNo,
+                        address,
+                        levelId,
+                        honor,
+                        fansCounts,
+                        wxid,
+                        qqId,
+                        isPerfectInformation,
+                        status,
+                        createdTime,
+                        updatedTime)
+        values(
+                     #{phone},
+                     #{password},
+                     #{realName},
+                     #{birthday},
+                     #{age},
+                     #{linkdPhone},
+                     #{email},
+                     #{idCard},
+                     #{idCardPositiveUrl},
+                     #{idCardBackUrl},
+                     #{bankCard},
+                     #{avatarUrl},
+                     #{experience},
+                     #{expertise},
+                     #{backgroundUrl},
+                     #{provinceNo},
+                     #{cityNo},
+                     #{address},
+                     #{levelId},
+                     #{honor},
+                     #{fansCounts},
+                     #{wxid},
+                     #{qqId},
+                     #{isPerfectInformation},
+                     #{status},
+                     #{createdTime},
+                    #{updatedTime})
+    </insert>
+
+    <update id="updateDyConsultants" parameterType="cn.dy.pojo.DyConsultants">
+        update dy_consultants
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+                        <if test="phone != null and phone!=''">
+                            phone=#{phone},
+                        </if>
+                        <if test="password != null and password!=''">
+                            password=#{password},
+                        </if>
+                        <if test="realName != null and realName!=''">
+                            realName=#{realName},
+                        </if>
+                        <if test="birthday != null and birthday!=''">
+                            birthday=#{birthday},
+                        </if>
+                        <if test="age != null and age!=''">
+                            age=#{age},
+                        </if>
+                        <if test="linkdPhone != null and linkdPhone!=''">
+                            linkdPhone=#{linkdPhone},
+                        </if>
+                        <if test="email != null and email!=''">
+                            email=#{email},
+                        </if>
+                        <if test="idCard != null and idCard!=''">
+                            idCard=#{idCard},
+                        </if>
+                        <if test="idCardPositiveUrl != null and idCardPositiveUrl!=''">
+                            idCardPositiveUrl=#{idCardPositiveUrl},
+                        </if>
+                        <if test="idCardBackUrl != null and idCardBackUrl!=''">
+                            idCardBackUrl=#{idCardBackUrl},
+                        </if>
+                        <if test="bankCard != null and bankCard!=''">
+                            bankCard=#{bankCard},
+                        </if>
+                        <if test="avatarUrl != null and avatarUrl!=''">
+                            avatarUrl=#{avatarUrl},
+                        </if>
+                        <if test="experience != null and experience!=''">
+                            experience=#{experience},
+                        </if>
+                        <if test="expertise != null and expertise!=''">
+                            expertise=#{expertise},
+                        </if>
+                        <if test="backgroundUrl != null and backgroundUrl!=''">
+                            backgroundUrl=#{backgroundUrl},
+                        </if>
+                        <if test="provinceNo != null and provinceNo!=''">
+                            provinceNo=#{provinceNo},
+                        </if>
+                        <if test="cityNo != null and cityNo!=''">
+                            cityNo=#{cityNo},
+                        </if>
+                        <if test="address != null and address!=''">
+                            address=#{address},
+                        </if>
+                        <if test="levelId != null and levelId!=''">
+                            levelId=#{levelId},
+                        </if>
+                        <if test="honor != null and honor!=''">
+                            honor=#{honor},
+                        </if>
+                        <if test="fansCounts != null and fansCounts!=''">
+                            fansCounts=#{fansCounts},
+                        </if>
+                        <if test="wxid != null and wxid!=''">
+                            wxid=#{wxid},
+                        </if>
+                        <if test="qqId != null and qqId!=''">
+                            qqId=#{qqId},
+                        </if>
+                        <if test="isPerfectInformation != null and isPerfectInformation!=''">
+                            isPerfectInformation=#{isPerfectInformation},
+                        </if>
+                        <if test="status != null and status!=''">
+                            status=#{status},
+                        </if>
+                        <if test="createdTime != null and createdTime!=''">
+                            createdTime=#{createdTime},
+                        </if>
+                        <if test="updatedTime != null and updatedTime!=''">
+                            updatedTime=#{updatedTime}
+                        </if>
+        </trim>
+    </update>
+
+    <delete id="deleteDyConsultantsById" parameterType="String">
+        delete from dy_consultants where id = #{id}
+    </delete>
+
+    <delete id="batchDeleteDyConsultants" parameterType="java.util.Map">
+        delete from dy_consultants where id in (
+            <foreach collection="ids" item="id" separator=",">
+                    #{id}
+            </foreach>
+        )
+    </delete>
+</mapper>
